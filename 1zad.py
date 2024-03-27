@@ -1,31 +1,13 @@
-f = open('scientist.txt', encoding='utf-8-sig')  # открываю исходный файл
-head = f.readline()  # заголовок файла
-data = []  # массив для хранения строк поэлементно
-for line in f.readlines():  # построчная обработка строк файла
-    a = line.strip().split('#')  # разбираю на элементы
-    data.append(a)  # сохраняю в массив
-
-# выходной файл, печатаю заголовок
+f = open('scientist.txt', encoding='utf-8-sig')
+head = f.readline().strip()
+head += ';Total'
+strok = f.readlines()
+# 2 data
+mn = 1000000
 f = open('scientist_origin.txt', 'w', encoding='utf-8-sig')
-print(head, end='', file=f)
-
-name_origin = ''  # для поиска создателя оригинального рецепта
-print(f'Разработчиками Аллопуринола были такие люди:')
-st = set()  # для учета какие препараты уже изобрели
-for a in sorted(data, key=lambda a: a[2]):  # перебираю отсортированный по дате список
-    prep = a[1]
-    if prep == 'Аллопуринол':
-        if prep not in st:
-            name_origin = a[0]
-        else:
-            print(f'{a[2]} - {a[0]}')
-    if prep not in st:  # если препарат еще не изобрели
-        st.add(prep)
-        print('#'.join(a), file=f)  # строка в файл с изобретателем
-print(f'Оригинальный рецепт принадлежит: {name_origin}')
-
-# Разработчиками Аллопуринола были такие люди:
-# 1388-04-06 - Кавардин Вячеслав Тимофеевич
-# 1519-07-04 - Хитьков Анатолий Петрович
-# 1955-12-21 - Желнеронов Георгий Тимофеевич
-# Оригинальный рецепт принадлежит: Голубкова Ирина Игоревна
+print(head, file=f)
+for i in range(len(strok)):
+    a = strok[i].strip().split('#')
+    if int(a[2][:4]) < mn:
+        mn = int(a[2][:4])
+print(mn)
