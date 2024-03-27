@@ -1,4 +1,4 @@
-ScientistName#preparation#date#components
+﻿ScientistName#preparation#date#components
 Непогодина Людмила Петровна#Витамин С#0900-02-24#Chemical_80 Chemical_34 Chemical_87
 Нецкина Елизавета Василевна#Вальтрекс#0901-02-23#Chemical_27 Chemical_12 Chemical_63
 Неветруева Елена Эдуардовна#Гидрохлоротиазид#0902-11-21#Chemical_15 Chemical_82 Chemical_21
